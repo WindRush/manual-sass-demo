@@ -45,7 +45,7 @@ allprojects {
             // jump to login
         }
 
-        override fun transfer() {
+        override fun transfer(context: Context) {
             // jump to transfer
         }
     })
