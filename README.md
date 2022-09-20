@@ -3,6 +3,10 @@ Perpetual futures SDK for Android
 
 ## Requirements
 + minSdkVersion 21
+## Supported languages
++ English(default)
++ 한국어
++ 简体中文
 
 ## Installation Via Maven
 #### 1.Add the following lines to `project -> build.gradle`:

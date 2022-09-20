@@ -8,7 +8,7 @@ import com.sass.contract.SassLibSDK
 class SassApplication : Application() {
     companion object {
         val host = "chimchim.top"
-        val key = "xxOi"
+        val key = "GjFt"
         val jwtToken = ""
 
     }
