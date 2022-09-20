@@ -1,0 +1,5 @@
+
+gradle.ext.aliyunMavenUser = '6304b41bf1e6ca42b4127c6c'
+gradle.ext.aliyunMavenPass = 'rLj6Q7mn=DGy'
+rootProject.name = "manual-sass-demo"
+include ':app'
