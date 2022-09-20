@@ -38,11 +38,7 @@ class StartActivity : BaseActivity() {
 
         findViewById<View>(R.id.btnGo)?.setOnClickListener {
             val token = editText?.text?.toString()?.trim()
-            if (token.isNullOrEmpty()) {
-                Toast.makeText(this@StartActivity, "token 不能为空", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            SassLibSDK.login(token)
+            if (!token.isNullOrEmpty()) SassLibSDK.login(token)
             startActivity(Intent(this@StartActivity, SassMainActivity::class.java))
         }
 
