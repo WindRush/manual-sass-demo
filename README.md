@@ -81,7 +81,7 @@ or you can use the SassMainActivity directly like this:
 ```kotlin
     startActivity(Intent(context, SassMainActivity::class.java))
 ```
-#### 3. change the theme color, override the `sass_lib_main` in your `colror.xml`，like this:
+#### 3. change the theme color, override the `sass_lib_main` in your `colors.xml`，like this:
 ```xml
     <color name="sass_lib_main">#D0A858</color>
 ```
