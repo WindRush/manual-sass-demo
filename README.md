@@ -32,7 +32,7 @@ allprojects {
 
 #### 2.Add the following lines to `project -> app -> build.gradle` :
 ```gradle
-    implementation 'com.sass.contract-lib:contract:0.0.1'
+    implementation 'com.sass.contract-lib:contract:0.0.2'
 ```
 
 ## Quick Tutorial
