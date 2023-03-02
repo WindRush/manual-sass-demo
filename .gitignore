@@ -1,5 +1,7 @@
 *.iml
 .gradle
+/app/mapping.txt
+/app/seeds.txt
 /.idea
 /local.properties
 /.idea/caches
