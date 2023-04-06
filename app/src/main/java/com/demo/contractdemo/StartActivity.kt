@@ -2,36 +2,21 @@ package com.demo.contractdemo
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.sass.contract.SassLibSDK
 import com.sass.contract.SassMainActivity
-import com.sass.contract.base.BaseActivity
-import com.sass.contract.module.trade.PermanentContractFragment
 
-class StartActivity : BaseActivity() {
+class StartActivity : AppCompatActivity() {
     val editText: EditText? by lazy {
         findViewById(R.id.et)
     }
 
-//    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-//        super.onCreate(savedInstanceState, persistentState)
-//        setContentView(R.layout.activity_start)
-//        initViewsAndEvents()
-//    }
-
-    override fun getContentViewId(): Int {
-        return R.layout.activity_start
-    }
-
-    override fun injectDagger() {
-    }
-
-    override fun initViewsAndEvents() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_start)
         findViewById<Button>(R.id.setting)?.setOnClickListener {
             startActivity(Intent(this@StartActivity, MainActivity::class.java))
         }
@@ -44,5 +29,6 @@ class StartActivity : BaseActivity() {
 
         if (SassLibSDK.isLogin()) startActivity(Intent(this@StartActivity, SassMainActivity::class.java))
     }
+
 
 }
