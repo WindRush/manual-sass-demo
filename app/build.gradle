@@ -61,7 +61,7 @@ dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation 'com.sass.contract-lib:contract:0.0.5'
+    implementation 'com.sass.contract-lib:contract:0.0.6'
 
 }
 

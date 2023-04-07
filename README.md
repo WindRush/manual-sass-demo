@@ -32,7 +32,7 @@ allprojects {
 
 #### 2.Add the following lines to `project -> app -> build.gradle` :
 ```gradle
-    implementation 'com.sass.contract-lib:contract:0.0.2'
+    implementation 'com.sass.contract-lib:contract:0.0.6'
 ```
 
 ## Quick Tutorial
@@ -61,20 +61,18 @@ SassLibSDK.logout() /*call after logout*/
 ```
 #### 2. you should nested the PermanentContractFragment into your Activity like this:
 ```kotlin
-class SassMainActivity : Activity() {
-    override fun getContentViewId(): Int {
-        return R.layout.activity_fragment_container
-    }
+class SassMainActivity : AppCompatActivity() {
 
-    override fun injectDagger() {
-    }
-
-    override fun initViewsAndEvents() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_fragment_container)
         back_iv?.setOnClickListener { finish() }
         supportFragmentManager.beginTransaction()
             .add(R.id.fg_container, PermanentContractFragment.newInstance())
             .commitAllowingStateLoss()
     }
+
+
 }
 ```
 or you can use the SassMainActivity directly like this:
@@ -84,6 +82,10 @@ or you can use the SassMainActivity directly like this:
 #### 3. change the theme color, override the `sass_lib_main` in your `colors.xml`，like this:
 ```xml
     <color name="sass_lib_main">#D0A858</color>
+```
+#### 4. change language:
+```kotlin
+    SassLibSDK.INSTANCE.changeLanguage(Locale.ENGLISH);
 ```
 
 SassLibSDK.class function list：

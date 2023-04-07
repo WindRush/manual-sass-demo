@@ -7,11 +7,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.greenrobot.eventbus.EventBus;
-
 import com.sass.contract.SassLibSDK;
-import com.sass.contract.base.BaseActivity;
-import com.sass.contract.event.BizEvent;
 
 import java.util.Locale;
 
@@ -45,16 +41,35 @@ public class ChangeLanguageActivity extends AppCompatActivity implements View.On
 
             case R.id.chinese_ll:
                 SassLibSDK.INSTANCE.changeLanguage(Locale.CHINA);
-
                 break;
             case R.id.english_ll:
                 SassLibSDK.INSTANCE.changeLanguage(Locale.ENGLISH);
                 break;
             case R.id.ko_ll:
                 SassLibSDK.INSTANCE.changeLanguage(Locale.KOREA);
-
                 break;
         }
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
