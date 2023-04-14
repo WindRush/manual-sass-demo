@@ -3,9 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    android:background="@color/main_bg">
-
+    android:orientation="vertical">
     <include layout="@layout/view_common_header" />
 
 
@@ -13,7 +11,6 @@
         android:id="@+id/chinese_ll"
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        android:background="@color/main_bg"
         android:clickable="true"
         android:gravity="center_vertical">
 
@@ -23,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="简体中文"
-            android:textColor="@color/color_1111111"
+            android:textColor="@color/black"
             android:textSize="@dimen/sp_12" />
 
         <ImageView
@@ -41,14 +38,13 @@
         android:layout_height="@dimen/dp_1"
         android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginRight="@dimen/dp_12"
-        android:background="@color/c_F5F7FA">
+        android:background="@color/hyp_saas_translucent">
     </View>
 
     <LinearLayout
         android:id="@+id/english_ll"
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        android:background="@color/main_bg"
         android:clickable="true"
         android:gravity="center_vertical">
 
@@ -58,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="English"
-            android:textColor="@color/color_1111111"
+            android:textColor="@color/black"
             android:textSize="@dimen/sp_12" />
 
         <ImageView
@@ -77,14 +73,13 @@
         android:layout_height="@dimen/dp_1"
         android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginRight="@dimen/dp_12"
-        android:background="@color/c_F5F7FA">
+        android:background="@color/hyp_saas_translucent">
     </View>
 
     <LinearLayout
         android:id="@+id/ko_ll"
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        android:background="@color/main_bg"
         android:clickable="true"
         android:gravity="center_vertical">
 
@@ -94,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="한국어"
-            android:textColor="@color/color_1111111"
+            android:textColor="@color/black"
             android:textSize="@dimen/sp_12" />
 
         <ImageView
@@ -111,7 +106,7 @@
         android:layout_height="@dimen/dp_1"
         android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginRight="@dimen/dp_12"
-        android:background="@color/c_F5F7FA">
+        android:background="@color/hyp_saas_translucent">
     </View>
 
 </LinearLayout>

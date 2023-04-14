@@ -26,6 +26,11 @@ class SassApplication : Application() {
                     Toast.makeText(context,"login go", Toast.LENGTH_SHORT).show()
                 }
 
+                override fun loginResult(success: Boolean) {
+                }
+
+                override fun toast(msg: String, duration: Int) {
+                }
                 override fun transfer(context: Context) {
                     Toast.makeText(context,"transfer go", Toast.LENGTH_SHORT).show()
 

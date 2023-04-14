@@ -14,6 +14,14 @@ allprojects {
             }
             url 'https://packages.aliyun.com/maven/repository/2269018-release-hMOQ2q/'
         }
+
+        maven {
+            credentials {
+                username '632845ef0bdb33a273e25c1a'
+                password 'OfRXphus7gPL'
+            }
+            url 'https://packages.aliyun.com/maven/repository/2269018-snapshot-NghWMR/'
+        }
     }
 }
 
