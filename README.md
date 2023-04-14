@@ -32,7 +32,7 @@ allprojects {
 
 #### 2.Add the following lines to `project -> app -> build.gradle` :
 ```gradle
-    implementation 'com.sass.contract-lib:contract:0.0.6'
+    implementation 'com.sass.contract-lib:contract:0.1.2'
 ```
 
 ## Quick Tutorial
@@ -51,6 +51,13 @@ allprojects {
 
         override fun transfer(context: Context) {
             // jump to transfer
+        }
+        override fun loginResult(success: Boolean) {
+            // login callback 
+        }
+
+        override fun toast(msg: String, duration: Int) {
+            // you should showToast with msg
         }
     })
 ```
@@ -85,7 +92,7 @@ or you can use the SassMainActivity directly like this:
 ```
 #### 4. change language:
 ```kotlin
-    SassLibSDK.INSTANCE.changeLanguage(Locale.ENGLISH);
+    SassLibSDK.changeLanguage(Locale.ENGLISH);
 ```
 
 SassLibSDK.class function list：
@@ -96,6 +103,7 @@ login /*login*/
 logout /*logout*/
 connectSocket /*connect the web socket*/
 disconnectSocket /*disconnect the web socket*/
+changeLanguage /* change language*/
 ```
 
 Tips:
