@@ -88,7 +88,7 @@ or you can use the SassMainActivity directly like this:
 ```
 #### 3. change the theme color, override the `hyp_saas_sass_lib_main` in your `colors.xml`，like this:
 ```xml
-    <color name="sass_lib_main">#D0A858</color>
+    <color name="hyp_saas_sass_lib_main">#D0A858</color>
 ```
 #### 4. change language:
 ```kotlin
