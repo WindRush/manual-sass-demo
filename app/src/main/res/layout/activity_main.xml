@@ -10,7 +10,7 @@
         android:id="@+id/tvLan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_border_353e53_2"
+        android:background="@drawable/hyp_tiny_saas_shape_border_353e53_2"
         android:textSize="15sp"
         android:textColor="@color/black"
         android:text="change language"

@@ -28,7 +28,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/language_selected"
+            android:src="@drawable/hyp_tiny_saas_language_selected"
             android:visibility="gone" />
 
     </LinearLayout>
@@ -38,7 +38,7 @@
         android:layout_height="@dimen/dp_1"
         android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginRight="@dimen/dp_12"
-        android:background="@color/hyp_saas_translucent">
+        android:background="@color/hyp_tiny_saas_translucent">
     </View>
 
     <LinearLayout
@@ -61,7 +61,7 @@
             android:id="@+id/eng_check"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/language_selected"
+            android:src="@drawable/hyp_tiny_saas_language_selected"
             android:layout_marginRight="20dp"
             android:visibility="gone" />
 
@@ -73,7 +73,7 @@
         android:layout_height="@dimen/dp_1"
         android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginRight="@dimen/dp_12"
-        android:background="@color/hyp_saas_translucent">
+        android:background="@color/hyp_tiny_saas_translucent">
     </View>
 
     <LinearLayout
@@ -97,7 +97,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginRight="20dp"
-            android:src="@drawable/language_selected"
+            android:src="@drawable/hyp_tiny_saas_language_selected"
             android:visibility="gone" />
 
     </LinearLayout>
@@ -106,7 +106,7 @@
         android:layout_height="@dimen/dp_1"
         android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginRight="@dimen/dp_12"
-        android:background="@color/hyp_saas_translucent">
+        android:background="@color/hyp_tiny_saas_translucent">
     </View>
 
 </LinearLayout>

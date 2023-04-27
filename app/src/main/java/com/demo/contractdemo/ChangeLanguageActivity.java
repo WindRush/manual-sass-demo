@@ -7,9 +7,10 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.sass.contract.SassLibSDK;
 
 import java.util.Locale;
+
+import io.bibeex.contract.sdk.tt.saas.SassLibSDK;
 
 /**
  * Created by Administrator on 2019/4/12 0012.

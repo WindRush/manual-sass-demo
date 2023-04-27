@@ -9,7 +9,7 @@
         android:id="@+id/setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_bg_374055_seleced_2"
+        android:background="@drawable/hyp_tiny_saas_shape_bg_374055_seleced_2"
         android:textSize="15sp"
         android:textColor="@color/black"
         android:text="setting"
@@ -24,7 +24,7 @@
         android:id="@+id/et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_border_353e53_2"
+        android:background="@drawable/hyp_tiny_saas_shape_border_353e53_2"
         android:textSize="15sp"
         android:textColor="@color/black"
         android:hint="input your jwt token"
@@ -35,14 +35,46 @@
         app:layout_constraintTop_toBottomOf="@id/setting"
         android:layout_marginTop="10dp"/>
 
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnGo"
+        android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et"
         android:layout_marginTop="20dp"
-        android:text="lets go"/>
+        android:text="登录"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/btnLogin"
+        app:layout_constraintTop_toTopOf="@id/btnLogin"
+        android:text="永续合约"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLighting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/btnContract"
+        app:layout_constraintTop_toTopOf="@id/btnContract"
+        android:text="闪电合约"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
