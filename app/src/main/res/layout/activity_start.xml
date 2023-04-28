@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/hyp_saas_sass_lib_main">
+    android:background="@color/hyp_tiny_saas_main_theme">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/setting"
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/hyp_tiny_saas_shape_bg_374055_seleced_2"
         android:textSize="15sp"
-        android:textColor="@color/black"
+        android:textColor="@color/grgray"
         android:text="setting"
         android:fontFamily="@font/dinpro_bold"
         android:layout_marginHorizontal="15dp"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/hyp_tiny_saas_shape_border_353e53_2"
         android:textSize="15sp"
-        android:textColor="@color/black"
+        android:textColor="@color/grgray"
         android:hint="input your jwt token"
         android:fontFamily="@font/dinpro_bold"
         android:layout_marginHorizontal="15dp"
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@id/btnContract"
         app:layout_constraintTop_toTopOf="@id/btnContract"
-        android:text="闪电合约"/>
+        android:text="赠金合约"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCashProfit"
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/hyp_tiny_saas_shape_border_353e53_2"
         android:textSize="15sp"
-        android:textColor="@color/black"
+        android:textColor="@color/grgray"
         android:hint="输入划转金额"
         android:fontFamily="@font/dinpro_bold"
         android:layout_marginHorizontal="15dp"

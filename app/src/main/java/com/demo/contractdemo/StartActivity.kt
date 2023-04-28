@@ -9,8 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import io.bibeex.contract.sdk.tt.saas.SassLibSDK
 import io.bibeex.contract.sdk.tt.saas.SassMainActivity
-import io.bibeex.contract.sdk.tt.saas.ui.activity.contract_trade.LightingFragment2
-import io.bibeex.contract.sdk.tt.saas.ui.activity.contract_trade.PermanentContractFragment
 
 class StartActivity : AppCompatActivity() {
     val editText: EditText? by lazy {
@@ -41,7 +39,7 @@ class StartActivity : AppCompatActivity() {
 
         findViewById<View>(R.id.btnCashProfit)?.setOnClickListener {
             SassLibSDK.requestCashProfit {
-                Toast.makeText(this@StartActivity, "可划转余额：${it}", Toast.LENGTH_SHORT)
+                Toast.makeText(this@StartActivity, "可划转余额：${it}", Toast.LENGTH_SHORT).show()
             }
         }
         findViewById<View>(R.id.btnTransfer)?.setOnClickListener {
@@ -50,9 +48,9 @@ class StartActivity : AppCompatActivity() {
 
             SassLibSDK.transferProfit(amount ?:return@setOnClickListener) { success, msg ->
                 if (success) {
-                    Toast.makeText(this@StartActivity, "划转成功", Toast.LENGTH_SHORT)
+                    Toast.makeText(this@StartActivity, "划转成功", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this@StartActivity, msg, Toast.LENGTH_SHORT)
+                    Toast.makeText(this@StartActivity, msg, Toast.LENGTH_SHORT).show()
 
                 }
             }
