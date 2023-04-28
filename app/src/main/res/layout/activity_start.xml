@@ -61,6 +61,38 @@
         app:layout_constraintTop_toTopOf="@id/btnContract"
         android:text="闪电合约"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCashProfit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"
+        android:layout_marginTop="20dp"
+        android:text="可划转余额"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/hyp_tiny_saas_shape_border_353e53_2"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:hint="输入划转金额"
+        android:fontFamily="@font/dinpro_bold"
+        android:layout_marginHorizontal="15dp"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="5dp"
+        app:layout_constraintTop_toBottomOf="@id/btnCashProfit"
+        android:layout_marginTop="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTransfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/btnCashProfit"
+        app:layout_constraintTop_toTopOf="@id/btnCashProfit"
+        android:text="划转"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

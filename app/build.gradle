@@ -89,7 +89,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation 'io.bibeex.tiny.trader:base:0.0.13'
-    implementation 'io.bibeex.tiny.trader:contract:0.1.12'
+    implementation 'io.bibeex.tiny.trader:contract:0.1.13'
 
 }
 
