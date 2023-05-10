@@ -5,27 +5,30 @@ import android.app.Application
 import android.content.Context
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import com.google.gson.Gson
 import io.bibeex.contract.common.bean.GridDetailsBean
 import io.bibeex.contract.common.bean.all.BibeexUserUsableBalances
 import io.bibeex.contract.sdk.tt.saas.SassLibSDK
 
 class SassApplication : Application() {
-    companion object {
-        val host = "x.chimchim.top"
-        val key = "xxOi"
-        val jwtToken = "eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiI1MTkwNjEyMyIsImVtYWlsIjoiLS0iLCJtb2JpbGUiOiIxMzEqKioqMDAwMSIsIm5pY2tuYW1lIjoiMTMxKioqKjAwMDEiLCJhcmVhIjoibnVsbCIsImludml0ZSI6IjMwMzk3Nzg0IiwiZXhwIjoxNjgzMTkzMzk2fQ.QH52up_c9cTi4P366GeIHu8RdfNumcmY5G9UaJVNJko_yJz05ft7zBWkqJoM7acb1OHx2r4MjyRnxyJI3zawaLbq7mXgliUPS8lcZMKVZ3YtrJLWNtKM6M4hYAE4gfE0U-aIVBwiO3Jh-u6aXjH4hgYmex1W7yciviAsjFLqE0DHrB6GhdtkOfE5V667seQWz8ZE6Ylmug7B6j-bk8uFrRw-SCAu5FjQzCsyGT70zcq4dsWwA_b8Ltwl1mSVVlO6_cUwbe625Fyvl0_Q-tW-4hMQVJj6P6Q5_XpLih9Dly4LQhsxSHhSQ8aiYxk8XWXKweIOBQn4t_iW8tEdoEfriA"
 
+    companion object {
+        //        val host = "x.chimchim.top"
+        val host = "x.123kj.top"
+        val key = "xxOi"
+        val jwtToken = "eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiI1MTkwNjEyOCIsImVtYWlsIjoic2oqKioqQHFxLmNvbSIsIm1vYmlsZSI6InNqKioqKkBxcS5jb20iLCJuaWNrbmFtZSI6InNqKioqKkBxcS5jb20iLCJhcmVhIjoibnVsbCIsImludml0ZSI6IiIsImV4cCI6MTY4NDExNzg0OH0.gNKBxcW3PpXWUUKNRsA8NoRB2XOguXFR8qe4nRHNOI218Rt2edpCqJRMheQCb5k0MhmYcKGDfxYnKh2TNhPpKkzjm52iLgDM_VoX-fzTYtqkqxoLjMRMTZTqsuoqUn1lqUh5qzDJzs29Z8pwNHcsi_DPZ_3x-jzigstUSnzki3DGNF76Iy7eA3reaBbKz2YVWvAMMokgZfqjbdq17mveS--q18sx4r0YgLl9C713TmDiYTwL7P6Qfc4-_K-IbRWDeLYpUdJM_CIfvsJG0dbrtz_KiuDs54S3iI_lwvXKhb8zmul7WpL-H_ER60_MGLfE3DPKVicZ2yNzRl8-RUqXHQ"
     }
 
     override fun onCreate() {
         super.onCreate()
+        SassLibSDK.option = true
         SassLibSDK.init(
             this,
             key,
             host,
-            jwtToken,
             BuildConfig.DEBUG,
+            true,
             object : SassLibSDK.SassLibSdkCallBack() {
                 override fun goLogin(context: Context) {
                     Toast.makeText(context,"go login", Toast.LENGTH_SHORT).show()
@@ -41,6 +44,7 @@ class SassApplication : Application() {
                 }
 
                 override fun loginResult(success: Boolean) {
+                    Toast.makeText(this@SassApplication,if (success) "登录成功" else "登录失败", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun shareGridPosition(
@@ -63,11 +67,21 @@ class SassApplication : Application() {
                 override fun toast(msg: String, duration: Int) {
                     Toast.makeText(this@SassApplication,msg, Toast.LENGTH_SHORT).show()
                 }
-                override fun transfer(context: Context) {
+                override fun recharge(context: Context) {
                     Toast.makeText(context,"transfer go", Toast.LENGTH_SHORT).show()
 
                 }
+
+                override fun transferOption(
+                    side: Int,
+                    activity: Activity,
+                    fragmentManager: FragmentManager
+                ) {
+                    Toast.makeText(this@SassApplication,"请给期权充钱", Toast.LENGTH_SHORT).show()
+                }
             })
+//
+//        SassLibSDK.login(jwtToken)
     }
 }
 

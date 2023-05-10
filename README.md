@@ -32,7 +32,7 @@ allprojects {
 
 #### 2.Add the following lines to `project -> app -> build.gradle` :
 ```gradle
-    implementation 'io.bibeex.tiny.trader:contract:0.1.16'
+    implementation 'io.bibeex.tiny.trader:contract:0.1.18'
 ```
 
 ## Quick Tutorial
@@ -42,14 +42,13 @@ allprojects {
     application, /* your application */
     host, /* host name*/
     k5fu3, /*channel id value*/
-    sfg6, /*your token*/
     BuildConfig.DEBUG, /*is debug mode, print the log if true*/
     object : SassLibSDK.SassLibSdkCallBack {
         override fun goLogin(context: Context) {
             // jump to login
         }
-        override fun transfer(context: Context) {
-            // jump to transfer
+        override fun recharge(context: Context) {
+            // jump to recharge
         }
         override fun loginResult(success: Boolean) {
             // login callback 
@@ -57,9 +56,13 @@ allprojects {
         override fun toast(msg: String, duration: Int) {
             // you should showToast with msg
         }
-        override fun loginResult(success: Boolean) { }
+        override fun loginResult(success: Boolean) { 
+            // after login
+        }
         
-        override fun gotoWeb(context: Context, title: String, url: String, showTitle: Boolean) { }
+        override fun gotoWeb(context: Context, title: String, url: String, showTitle: Boolean) { 
+            // jump to webview
+        }
         override fun sharePosition(
             context: Activity,
             rootView: View,
@@ -76,6 +79,11 @@ allprojects {
                 // token Expired
             } 
         }
+
+        // 期权划转
+        override fun transferOption(side: Int, activity: Activity, fragmentManager: FragmentManager) {
+            // transfer into option
+        }
     })
 ```
 you need to call these functions after the user login or logout
@@ -83,10 +91,9 @@ you need to call these functions after the user login or logout
 SassLibSDK.login(sfg6) /* call after login，@param sfg6 is your token*/
 SassLibSDK.logout() /*call after logout*/
 ```
-#### 2. you should nested the PermanentContractFragment into your Activity like this:
+#### 2. you should nested the Saas Fragment into your Activity like this:
 ```kotlin
 class SassMainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment_container)
@@ -95,14 +102,13 @@ class SassMainActivity : AppCompatActivity() {
             .add(R.id.fg_container, PermanentContractFragment.newInstance())
             .commitAllowingStateLoss()
     }
-
-
 }
 ```
-or you can use the SassMainActivity directly like this:
-```kotlin
-    startActivity(Intent(context, SassMainActivity::class.java))
-```
+##### contract is ```PermanentContractFragment.newInstance()```
+##### lighting contract is ```LightingFragment()```
+##### option contract is ```OptionFragment()```
+
+
 #### 3. change the theme color, override the `hyp_tiny_saas_main_theme` in your `colors.xml`，like this:
 ```xml
     <color name="hyp_tiny_saas_main_theme">#D0A858</color>
@@ -110,22 +116,6 @@ or you can use the SassMainActivity directly like this:
 #### 4. change language:
 ```kotlin
     SassLibSDK.changeLanguage(Locale.ENGLISH);
-```
-
-#### 5. infinite contract: nested the LightingFragment into your Activity like this:
-```kotlin
-    class SassMainActivity : AppCompatActivity() {
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_fragment_container)
-            back_iv?.setOnClickListener { finish() }
-            supportFragmentManager.beginTransaction()
-                .add(R.id.fg_container, LightingFragment())
-                .commitAllowingStateLoss()
-        }
-    
-    
-    }
 ```
 
 Tips:

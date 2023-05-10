@@ -26,6 +26,9 @@
 
         <activity android:name=".LightingActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".OptionActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

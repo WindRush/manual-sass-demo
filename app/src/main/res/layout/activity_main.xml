@@ -6,13 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/ivNight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/hyp_tiny_saas_ic_night"
+        android:layout_margin="25dp"/>
     <Button
         android:id="@+id/tvLan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/hyp_tiny_saas_shape_border_353e53_2"
         android:textSize="15sp"
-        android:textColor="@color/black"
+        android:textColor="@color/grgray"
         android:text="change language"
         android:fontFamily="@font/dinpro_bold"
         android:layout_marginHorizontal="15dp"
@@ -20,5 +28,6 @@
         android:paddingHorizontal="5dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="100dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

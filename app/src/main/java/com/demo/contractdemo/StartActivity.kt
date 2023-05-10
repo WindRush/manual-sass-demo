@@ -5,23 +5,32 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import io.bibeex.contract.common.utlis.SpUtils
 import io.bibeex.contract.sdk.tt.saas.SassLibSDK
 import io.bibeex.contract.sdk.tt.saas.SassMainActivity
 
 class StartActivity : AppCompatActivity() {
     val editText: EditText? by lazy {
-        findViewById(R.id.et)
+        findViewById(R.id.etToken)
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
+        val night = if (SpUtils.getBoolean("MODE_DAY_NIGHT")) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+        AppCompatDelegate.setDefaultNightMode(night)
         findViewById<Button>(R.id.setting)?.setOnClickListener {
             startActivity(Intent(this@StartActivity, MainActivity::class.java))
         }
+
+        findViewById<ImageView>(R.id.ivClear)?.setOnClickListener {
+            editText?.setText("")
+        }
+
 
         findViewById<View>(R.id.btnLogin)?.setOnClickListener {
             val token = editText?.text?.toString()?.trim()
@@ -35,6 +44,9 @@ class StartActivity : AppCompatActivity() {
 
         findViewById<View>(R.id.btnLighting)?.setOnClickListener {
             startActivity(Intent(this@StartActivity, LightingActivity::class.java))
+        }
+        findViewById<View>(R.id.btnOption)?.setOnClickListener {
+            startActivity(Intent(this@StartActivity, OptionActivity::class.java))
         }
 
         findViewById<View>(R.id.btnCashProfit)?.setOnClickListener {
@@ -56,10 +68,11 @@ class StartActivity : AppCompatActivity() {
             }
         }
 
+        editText?.setText(SassApplication.jwtToken)
 
-//        PermanentContractFragment()
-//        LightingFragment2
+
     }
+
 
 
 }
