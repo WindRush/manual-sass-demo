@@ -1,15 +1,15 @@
 # mobile-sdk-android
-Perpetual futures SDK for Android
+TinyTrader 合约SDK
 
-## Requirements
+## 最低版本
 + minSdkVersion 21
-## Supported languages
+## 支持的语言
 + English(default)
 + 한국어
 + 简体中文
 
-## Installation Via Maven
-#### 1.Add the following lines to `project -> build.gradle`:
+## 通过Maven引入
+#### 1.把以下代码加入 `project -> build.gradle`:
 ```gradle
 allprojects {
     repositories {
@@ -30,35 +30,35 @@ allprojects {
 }
 ```
 
-#### 2.Add the following lines to `project -> app -> build.gradle` :
+#### 2.引入 `project -> app -> build.gradle` :
 ```gradle
     implementation 'io.bibeex.tiny.trader:contract:0.1.18'
 ```
 
-## Quick Tutorial
-#### 1. Setup the SDK on App startup
+## 快速开始
+#### 1. 在你的application中初始化
 ```kotlin
     SassLibSDK.init(
     application, /* your application */
     host, /* host name*/
     k5fu3, /*channel id value*/
-    BuildConfig.DEBUG, /*is debug mode, print the log if true*/
+    BuildConfig.DEBUG, /*是否debug*/
     object : SassLibSDK.SassLibSdkCallBack {
         override fun goLogin(context: Context) {
-            // jump to login
+            // 跳转去登录
         }
         override fun recharge(context: Context) {
-            // jump to recharge
+            // 充币
         }
         override fun loginResult(success: Boolean) {
-            // login callback 
+            // 登录后回调
         }
         override fun toast(msg: String, duration: Int) {
-            // you should showToast with msg
+            // 吐司
         }
         
         override fun gotoWeb(context: Context, title: String, url: String, showTitle: Boolean) { 
-            // jump to webview
+            // 跳转webview
         }
         override fun sharePosition(
             context: Activity,
@@ -67,28 +67,28 @@ allprojects {
             fromH5: Boolean = false,
             isPermanent: Boolean
         ) {
-            // share position
+            // 合约仓位分享
         }
         override fun onHttpCodeError(code: String) {
             super.onHttpCodeError(code)
             if (code == HttpRequestResultStatus.REQ_TOKEN_LOSE
                 || code == HttpRequestResultStatus.HTTP_ERROR_CODE) {
-                // token Expired
+                // token过期回调 或者 返回错误码
             } 
         }
 
         // 期权划转
         override fun transferOption(side: Int, activity: Activity, fragmentManager: FragmentManager) {
-            // transfer into option
+            // 往期权划转
         }
     })
 ```
 you need to call these functions after the user login or logout
 ```kotlin
-SassLibSDK.login(sfg6) /* call after login，@param sfg6 is your token*/
-SassLibSDK.logout() /*call after logout*/
+SassLibSDK.login(sfg6) /* 宿主APP登录后调用，@param sfg6 is your token*/
+SassLibSDK.logout() /*宿主app退出登录后调用*/
 ```
-#### 2. you should nested the Saas Fragment into your Activity like this:
+#### 2. 把需要的功能Fragment嵌入你的activity，比如：
 ```kotlin
 class SassMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,23 +101,23 @@ class SassMainActivity : AppCompatActivity() {
     }
 }
 ```
-##### contract is ```PermanentContractFragment.newInstance()```
-##### lighting contract is ```LightingFragment()```
-##### option contract is ```OptionFragment()```
+##### 永续合约 ```PermanentContractFragment.newInstance()```
+##### 赠金合约 ```LightingFragment()```
+##### 期权合约 ```OptionFragment()```
 
 
-#### 3. change the theme color, override the `hyp_tiny_saas_main_theme` in your `colors.xml`，like this:
+#### 3. 修改主题色，在你的`colors.xml`里复写 `hyp_tiny_saas_main_theme` ：
 ```xml
     <color name="hyp_tiny_saas_main_theme">#D0A858</color>
 ```
-#### 4. change language:
+#### 4. 修改SDK语言：
 ```kotlin
     SassLibSDK.changeLanguage(Locale.ENGLISH);
 ```
 
-Tips:
-### before launch the SDK's Contract Fragment, you need to call `connectSocket`,
-### after finish the Contract Fragment, you need to call `disconnectSocket`.
+建议:
+### 开启相关页面之前链接socket：`connectSocket`,
+### 页面关闭之后关闭socket： `disconnectSocket`.
 
 
 
