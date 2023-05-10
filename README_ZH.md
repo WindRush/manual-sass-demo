@@ -83,7 +83,6 @@ allprojects {
         }
     })
 ```
-you need to call these functions after the user login or logout
 ```kotlin
 SassLibSDK.login(sfg6) /* 宿主APP登录后调用，@param sfg6 is your token*/
 SassLibSDK.logout() /*宿主app退出登录后调用*/

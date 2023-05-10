@@ -73,7 +73,7 @@ allprojects {
             super.onHttpCodeError(code)
             if (code == HttpRequestResultStatus.REQ_TOKEN_LOSE
                 || code == HttpRequestResultStatus.HTTP_ERROR_CODE) {
-                // token Expired
+                // token Expired or http error
             } 
         }
 
@@ -83,7 +83,6 @@ allprojects {
         }
     })
 ```
-you need to call these functions after the user login or logout
 ```kotlin
 SassLibSDK.login(sfg6) /* call after login，@param sfg6 is your token*/
 SassLibSDK.logout() /*call after logout*/
@@ -102,7 +101,7 @@ class SassMainActivity : AppCompatActivity() {
 }
 ```
 ##### contract is ```PermanentContractFragment.newInstance()```
-##### lighting contract is ```LightingFragment()```
+##### infinite contract is ```LightingFragment()```
 ##### option contract is ```OptionFragment()```
 
 
