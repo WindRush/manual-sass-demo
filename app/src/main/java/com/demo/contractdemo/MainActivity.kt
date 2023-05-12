@@ -51,6 +51,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun lan() {
         startActivity(Intent(this, ChangeLanguageActivity::class.java))
+
+        val side = (closePrice - openPrice) * (if (direction == "long") 1 else -1)
     }
 
 }

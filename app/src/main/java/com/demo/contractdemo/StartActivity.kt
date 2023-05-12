@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import io.bibeex.contract.common.utlis.SpUtils
 import io.bibeex.contract.sdk.tt.saas.SassLibSDK
 import io.bibeex.contract.sdk.tt.saas.SassMainActivity
+import io.bibeex.contract.sdk.tt.saas.ui.activity.contract_trade.PermanentContractFragment
 
 class StartActivity : AppCompatActivity() {
     val editText: EditText? by lazy {
@@ -37,6 +38,8 @@ class StartActivity : AppCompatActivity() {
             if (!token.isNullOrEmpty())
                 SassLibSDK.login(token)
         }
+
+        PermanentContractFragment("")
 
         findViewById<View>(R.id.btnContract)?.setOnClickListener {
             startActivity(Intent(this@StartActivity, SassMainActivity::class.java))

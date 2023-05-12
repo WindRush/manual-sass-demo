@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/hyp_tiny_saas_shape_border_353e53_2"
         android:textSize="15sp"
-        android:textColor="@color/grgray"
+        android:textColor="@color/hyp_tiny_saas_black"
         android:text="change language"
         android:fontFamily="@font/dinpro_bold"
         android:layout_marginHorizontal="15dp"
