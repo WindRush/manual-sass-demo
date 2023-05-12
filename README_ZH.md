@@ -1,5 +1,5 @@
 # mobile-sdk-android
-TinyTrader 合约SDK
+TinyTrader Android合约SDK
 
 ## 最低版本
 + minSdkVersion 21
@@ -101,16 +101,21 @@ class SassMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment_container)
         back_iv?.setOnClickListener { finish() }
+        // 永续合约
         supportFragmentManager.beginTransaction()
             .add(R.id.fg_container, PermanentContractFragment.newInstance())
             .commitAllowingStateLoss()
+        // 赠金模式
+//        supportFragmentManager.beginTransaction()
+//            .add(R.id.fg_container, LightingFragment())
+//            .commitAllowingStateLoss()
+        // 期权合约
+//        supportFragmentManager.beginTransaction()
+//            .add(R.id.fg_container, OptionFragment())
+//            .commitAllowingStateLoss()
     }
 }
 ```
-##### 永续合约 ```PermanentContractFragment.newInstance()```
-##### 赠金合约 ```LightingFragment()```
-##### 期权合约 ```OptionFragment()```
-
 
 #### 3. 修改主题色，在你的`colors.xml`里复写 `hyp_tiny_saas_main_theme` ：
 ```xml

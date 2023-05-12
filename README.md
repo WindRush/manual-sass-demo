@@ -1,5 +1,5 @@
 # mobile-sdk-android
-Perpetual futures SDK for Android
+TinyTrader futures SDK for Android
 
 ## Requirements
 + minSdkVersion 21
@@ -102,16 +102,21 @@ class SassMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment_container)
         back_iv?.setOnClickListener { finish() }
+        // permanent future 
         supportFragmentManager.beginTransaction()
             .add(R.id.fg_container, PermanentContractFragment.newInstance())
             .commitAllowingStateLoss()
+        // infinite future
+//        supportFragmentManager.beginTransaction()
+//            .add(R.id.fg_container, LightingFragment())
+//            .commitAllowingStateLoss()
+        // option future
+//        supportFragmentManager.beginTransaction()
+//            .add(R.id.fg_container, OptionFragment())
+//            .commitAllowingStateLoss()
     }
 }
 ```
-##### contract is ```PermanentContractFragment.newInstance()```
-##### infinite contract is ```LightingFragment()```
-##### option contract is ```OptionFragment()```
-
 
 #### 3. change the theme color, override the `hyp_tiny_saas_main_theme` in your `colors.xml`，like this:
 ```xml
@@ -119,7 +124,7 @@ class SassMainActivity : AppCompatActivity() {
 ```
 #### 4. change language:
 ```kotlin
-    SassLibSDK.changeLanguage(Locale.ENGLISH);
+    SassLibSDK.changeLanguage(Locale.ENGLISH)
 ```
 
 Tips:
