@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import com.google.gson.Gson
 import io.bibeex.contract.common.bean.GridDetailsBean
+import io.bibeex.contract.common.bean.SharePositionEntity
 import io.bibeex.contract.common.bean.all.BibeexUserUsableBalances
 import io.bibeex.contract.sdk.tt.saas.SassLibSDK
 
@@ -58,9 +59,9 @@ class SassApplication : Application() {
                     context: Activity,
                     rootView: View,
                     item: BibeexUserUsableBalances.UserPositionsBean,
-                    fromH5: Boolean,
-                    isPermanent: Boolean
+                    entity: SharePositionEntity
                 ) {
+                    val price = entity.getCalOpenPrice()
                     Toast.makeText(this@SassApplication, Gson().toJson(item), Toast.LENGTH_SHORT).show()
                 }
 

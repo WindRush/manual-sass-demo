@@ -39,7 +39,6 @@ class StartActivity : AppCompatActivity() {
                 SassLibSDK.login(token)
         }
 
-        PermanentContractFragment("")
 
         findViewById<View>(R.id.btnContract)?.setOnClickListener {
             startActivity(Intent(this@StartActivity, SassMainActivity::class.java))

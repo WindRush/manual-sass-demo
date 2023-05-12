@@ -32,7 +32,7 @@ allprojects {
 
 #### 2.Add the following lines to `project -> app -> build.gradle` :
 ```gradle
-    implementation 'io.bibeex.tiny.trader:contract:0.1.18'
+    implementation 'io.bibeex.tiny.trader:contract:0.1.26'
 ```
 
 ## Quick Tutorial
@@ -60,12 +60,20 @@ allprojects {
         override fun gotoWeb(context: Context, title: String, url: String, showTitle: Boolean) { 
             // jump to webview
         }
+
+        /**
+         * @param entity inside constant：
+         *                  direction：”long” ，”short“ 
+         *                  profitRate： > 0 profit， < 0 loss
+         *                  instrument：contract name, BTC,ETH
+         *                  openPrice：
+         *                  targetPrice：currentPrice/closePrice
+         */
         override fun sharePosition(
             context: Activity,
             rootView: View,
             item: BibeexUserUsableBalances.UserPositionsBean,
-            fromH5: Boolean = false,
-            isPermanent: Boolean
+            entity: SharePositionEntity
         ) {
             // share position
         }

@@ -32,7 +32,7 @@ allprojects {
 
 #### 2.引入 `project -> app -> build.gradle` :
 ```gradle
-    implementation 'io.bibeex.tiny.trader:contract:0.1.18'
+    implementation 'io.bibeex.tiny.trader:contract:0.1.26'
 ```
 
 ## 快速开始
@@ -60,12 +60,19 @@ allprojects {
         override fun gotoWeb(context: Context, title: String, url: String, showTitle: Boolean) { 
             // 跳转webview
         }
+        /**
+         * @param entity 分享实例，包含字段：
+         *                  direction：”long” 做多，”short“ 做空
+         *                  profitRate：盈亏率 > 0 盈利， < 0 亏损
+         *                  instrument：合约类型，如BTC,ETH
+         *                  openPrice：开仓价
+         *                  targetPrice：当前价/平仓价
+         */
         override fun sharePosition(
             context: Activity,
             rootView: View,
             item: BibeexUserUsableBalances.UserPositionsBean,
-            fromH5: Boolean = false,
-            isPermanent: Boolean
+            entity: SharePositionEntity
         ) {
             // 合约仓位分享
         }
