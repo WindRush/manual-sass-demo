@@ -125,6 +125,29 @@ class SassMainActivity : AppCompatActivity() {
 ```kotlin
     SassLibSDK.changeLanguage(Locale.ENGLISH);
 ```
+#### 5. 合约相关方法：
+```kotlin
+    // 获取永续可划转余额
+    SassLibSDK.requestCashProfit {
+        Toast.makeText(this@StartActivity, "可划转余额：${it}", Toast.LENGTH_SHORT).show()
+    }
+
+    // 赠金余额划转，amount: 划转金额
+    val amount = etAmount?.text?.toString()
+    SassLibSDK.transferProfit(amount ?:return@setOnClickListener) { success, msg ->
+        if (success) {
+            Toast.makeText(this@StartActivity, "划转成功", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this@StartActivity, msg, Toast.LENGTH_SHORT).show()
+    
+        }
+    }
+    // 获取永续合约资产数据
+    SassLibSDK.requestPerpetualAssetDataWithCallback { available, freeze, unrealizeProfit, totalMargin ->
+        val str = "余额:$available, 冻结:$freeze,未实现盈亏:$unrealizeProfit,保证金:$totalMargin"
+        Toast.makeText(this@StartActivity, str, Toast.LENGTH_SHORT).show()
+    }
+```
 
 建议:
 ### 开启相关页面之前链接socket：`connectSocket`,

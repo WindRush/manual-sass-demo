@@ -70,6 +70,13 @@ class StartActivity : AppCompatActivity() {
             }
         }
 
+        findViewById<View>(R.id.btnAsset)?.setOnClickListener {
+            SassLibSDK.requestPerpetualAssetDataWithCallback { available, freeze, unrealizeProfit, totalMargin ->
+                val str = "余额:$available, 冻结:$freeze,未实现盈亏:$unrealizeProfit,保证金:$totalMargin"
+                Toast.makeText(this@StartActivity, str, Toast.LENGTH_SHORT).show()
+            }
+        }
+
         editText?.setText(SassApplication.jwtToken)
 
 

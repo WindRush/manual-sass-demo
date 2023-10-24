@@ -112,6 +112,14 @@
         app:layout_constraintTop_toTopOf="@id/btnCashProfit"
         android:text="划转"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAsset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/btnTransfer"
+        app:layout_constraintTop_toTopOf="@id/btnTransfer"
+        android:text="获取资产数据"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
