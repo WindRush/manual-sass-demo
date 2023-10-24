@@ -127,7 +127,7 @@ class SassMainActivity : AppCompatActivity() {
 ```
 #### 5. 合约相关方法：
 ```kotlin
-    // 获取永续可划转余额
+    // 获取赠金可划转余额
     SassLibSDK.requestCashProfit {
         Toast.makeText(this@StartActivity, "可划转余额：${it}", Toast.LENGTH_SHORT).show()
     }
