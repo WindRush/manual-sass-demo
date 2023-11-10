@@ -68,6 +68,10 @@ android {
             outputFileName = "contract_demo_${property}_${new Date().format("yyyyMMddHHmm", TimeZone.getDefault())}.apk"
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 repositories {
@@ -90,7 +94,7 @@ dependencies {
 
 //    implementation files('libs/contract-1.0.8-20230526.034449-1.aar')
 
-    implementation 'io.bibeex.tiny.trader:contract:0.1.29'
+    implementation 'io.bibeex.tiny.trader:contract:0.1.35'
 
 }
 

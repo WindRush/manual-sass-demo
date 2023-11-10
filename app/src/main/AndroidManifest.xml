@@ -24,10 +24,16 @@
         <activity android:name=".ChangeLanguageActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ContractActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".LightingActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".OptionActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".SecondsActivity"
             android:screenOrientation="portrait"/>
     </application>
 

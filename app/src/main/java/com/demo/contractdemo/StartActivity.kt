@@ -11,8 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import io.bibeex.contract.common.utlis.SpUtils
 import io.bibeex.contract.sdk.tt.saas.SassLibSDK
-import io.bibeex.contract.sdk.tt.saas.SassMainActivity
-import io.bibeex.contract.sdk.tt.saas.ui.activity.contract_trade.PermanentContractFragment
 
 class StartActivity : AppCompatActivity() {
     val editText: EditText? by lazy {
@@ -39,9 +37,8 @@ class StartActivity : AppCompatActivity() {
                 SassLibSDK.login(token)
         }
 
-
         findViewById<View>(R.id.btnContract)?.setOnClickListener {
-            startActivity(Intent(this@StartActivity, SassMainActivity::class.java))
+            startActivity(Intent(this@StartActivity, ContractActivity::class.java))
         }
 
         findViewById<View>(R.id.btnLighting)?.setOnClickListener {
@@ -49,6 +46,10 @@ class StartActivity : AppCompatActivity() {
         }
         findViewById<View>(R.id.btnOption)?.setOnClickListener {
             startActivity(Intent(this@StartActivity, OptionActivity::class.java))
+        }
+
+        findViewById<View>(R.id.btnSecond)?.setOnClickListener {
+            startActivity(Intent(this@StartActivity, SecondsActivity::class.java))
         }
 
         findViewById<View>(R.id.btnCashProfit)?.setOnClickListener {
@@ -78,7 +79,6 @@ class StartActivity : AppCompatActivity() {
         }
 
         editText?.setText(SassApplication.jwtToken)
-
 
     }
 

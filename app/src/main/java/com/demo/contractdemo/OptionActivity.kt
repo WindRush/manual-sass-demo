@@ -12,7 +12,7 @@ class OptionActivity: AppCompatActivity() {
         setContentView(R.layout.activity_lighting)
         SassLibSDK.connectSocket()
         supportFragmentManager.beginTransaction()
-            .add(R.id.flContent, OptionFragment())
+            .add(R.id.flContent, OptionFragment.newInstance())
             .commitAllowingStateLoss()
     }
 

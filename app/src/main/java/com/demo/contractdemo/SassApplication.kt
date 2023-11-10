@@ -11,14 +11,18 @@ import io.bibeex.contract.common.bean.GridDetailsBean
 import io.bibeex.contract.common.bean.SharePositionEntity
 import io.bibeex.contract.common.bean.all.BibeexUserUsableBalances
 import io.bibeex.contract.sdk.tt.saas.SassLibSDK
+import io.bibeex.contract.sdk.tt.saas.option.OnOptionBalanceChangeListener
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class SassApplication : Application() {
 
     companion object {
-        //        val host = "x.chimchim.top"
-        val host = "x.123kj.top"
+        val host = "x.chimchim.top"
         val key = "xxOi"
-        val jwtToken = "eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiI1MTkwNjEyOCIsImVtYWlsIjoic2oqKioqQHFxLmNvbSIsIm1vYmlsZSI6InNqKioqKkBxcS5jb20iLCJuaWNrbmFtZSI6InNqKioqKkBxcS5jb20iLCJhcmVhIjoibnVsbCIsImludml0ZSI6IiIsImV4cCI6MTY4NDExNzg0OH0.gNKBxcW3PpXWUUKNRsA8NoRB2XOguXFR8qe4nRHNOI218Rt2edpCqJRMheQCb5k0MhmYcKGDfxYnKh2TNhPpKkzjm52iLgDM_VoX-fzTYtqkqxoLjMRMTZTqsuoqUn1lqUh5qzDJzs29Z8pwNHcsi_DPZ_3x-jzigstUSnzki3DGNF76Iy7eA3reaBbKz2YVWvAMMokgZfqjbdq17mveS--q18sx4r0YgLl9C713TmDiYTwL7P6Qfc4-_K-IbRWDeLYpUdJM_CIfvsJG0dbrtz_KiuDs54S3iI_lwvXKhb8zmul7WpL-H_ER60_MGLfE3DPKVicZ2yNzRl8-RUqXHQ"
+        val jwtToken =
+            "eyJhbGciOiJSUzI1NiJ9.eyJhcmVhIjoiODYiLCJ1aWQiOiI1MTkwNzI3NyIsIm1vYmlsZSI6IjE1MjM3MTI3NzUyIiwiaW52aXRlIjoiMzg0MjM3ODIiLCJlbWFpbCI6IjA0MDQxQHFxLmNvbSIsImV4cCI6MTcwMDgyMDc1MH0.plc_5h4FNDKdOkCfEcutT92Y6aHPFZZKeZAOulevwB5Llgx-rvhti3gWA1C42NS9IdHC8fJGnxsxpWOmxuHGNw6SkAAOeXz-NFCHBKLm1Ts7IJONGDhiWGUrumKqBjSs0dvZeXN9DVYUbl_Yp3Xgt4tqWta5AgTdREEiGkf9O31-iJr0WOEWpp4D55Om1oP_oO4F8sdvSDMRzpJr9mYc6h9X9vcVQ9HIJhc1vpS_LSB4kZrgVxh-cpbzanjQlDmPu4UKvhjDSyUAxLtYw2w3HNWx5WlTZLmPvLd8hgTsAIciOlZ0WKXlIGrnG4TF9ijXJ1P4WgCqKAOkI-TxWdPo3Q"
     }
 
     override fun onCreate() {
@@ -29,10 +33,11 @@ class SassApplication : Application() {
             key,
             host,
             BuildConfig.DEBUG,
-            true,
             object : SassLibSDK.SassLibSdkCallBack() {
                 override fun goLogin(context: Context) {
-                    Toast.makeText(context,"go login", Toast.LENGTH_SHORT).show()
+                    GlobalScope.launch(Dispatchers.Main) {
+                        Toast.makeText(context,"go login", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
                 override fun gotoWeb(
@@ -61,8 +66,14 @@ class SassApplication : Application() {
                     item: BibeexUserUsableBalances.UserPositionsBean,
                     entity: SharePositionEntity
                 ) {
-                    val price = entity.getCalOpenPrice()
                     Toast.makeText(this@SassApplication, Gson().toJson(item), Toast.LENGTH_SHORT).show()
+                }
+
+                /**
+                 * @param status 0 normal 1 success 2 failed
+                 */
+                override fun stToast(msg: String, status: Int) {
+
                 }
 
                 override fun toast(msg: String, duration: Int) {
@@ -76,13 +87,12 @@ class SassApplication : Application() {
                 override fun transferOption(
                     side: Int,
                     activity: Activity,
-                    fragmentManager: FragmentManager
+                    fragmentManager: FragmentManager,
+                    listener: OnOptionBalanceChangeListener
                 ) {
                     Toast.makeText(this@SassApplication,"请给期权充钱", Toast.LENGTH_SHORT).show()
                 }
             })
-//
-//        SassLibSDK.login(jwtToken)
     }
 }
 

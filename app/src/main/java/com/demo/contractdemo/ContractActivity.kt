@@ -1,18 +1,20 @@
 package com.demo.contractdemo
-
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import io.bibeex.contract.sdk.tt.saas.SassLibSDK
-import io.bibeex.contract.sdk.tt.saas.ui.fragment.kline.LightingFragment
+import io.bibeex.contract.sdk.tt.saas.ui.activity.contract_trade.PermanentContractFragment
 
-class LightingActivity: AppCompatActivity() {
 
+class ContractActivity : AppCompatActivity() {
+
+    lateinit var permanentContractFragment: PermanentContractFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lighting)
         SassLibSDK.connectSocket()
+        permanentContractFragment = PermanentContractFragment.newInstance() as PermanentContractFragment
         supportFragmentManager.beginTransaction()
-            .add(R.id.flContent, LightingFragment.newInstance())
+            .add(R.id.flContent, permanentContractFragment)
             .commitAllowingStateLoss()
     }
 
@@ -20,4 +22,5 @@ class LightingActivity: AppCompatActivity() {
         super.onDestroy()
         SassLibSDK.disconnectSocket()
     }
+
 }
