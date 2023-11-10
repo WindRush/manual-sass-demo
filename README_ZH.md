@@ -32,7 +32,12 @@ allprojects {
 
 #### 2.引入 `project -> app -> build.gradle` :
 ```gradle
-    implementation 'io.bibeex.tiny.trader:contract:0.1.26'
+    android {
+        dataBinding {
+            enabled = true
+        }
+    }
+    implementation 'io.bibeex.tiny.trader:contract:0.1.35'
 ```
 
 ## 快速开始
@@ -55,6 +60,12 @@ allprojects {
         }
         override fun toast(msg: String, duration: Int) {
             // 吐司
+        }
+        /** 包含状态的吐司
+         * @param status 0 normal 1 success 2 failed
+         */
+        override fun stToast(msg: String, status: Int) {
+
         }
         
         override fun gotoWeb(context: Context, title: String, url: String, showTitle: Boolean) { 
@@ -107,11 +118,15 @@ class SassMainActivity : AppCompatActivity() {
             .commitAllowingStateLoss()
         // 赠金模式
 //        supportFragmentManager.beginTransaction()
-//            .add(R.id.fg_container, LightingFragment())
+//            .add(R.id.fg_container, LightingFragment.newInstance())
 //            .commitAllowingStateLoss()
         // 期权合约
 //        supportFragmentManager.beginTransaction()
-//            .add(R.id.fg_container, OptionFragment())
+//            .add(R.id.fg_container, OptionFragment.newInstance())
+//            .commitAllowingStateLoss()
+        // 秒合约
+//        supportFragmentManager.beginTransaction()
+//            .add(R.id.fg_container, SecondsContractFragment.newInstance())
 //            .commitAllowingStateLoss()
     }
 }

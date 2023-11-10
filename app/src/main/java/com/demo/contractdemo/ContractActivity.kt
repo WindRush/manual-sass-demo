@@ -7,14 +7,12 @@ import io.bibeex.contract.sdk.tt.saas.ui.activity.contract_trade.PermanentContra
 
 class ContractActivity : AppCompatActivity() {
 
-    lateinit var permanentContractFragment: PermanentContractFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lighting)
         SassLibSDK.connectSocket()
-        permanentContractFragment = PermanentContractFragment.newInstance() as PermanentContractFragment
         supportFragmentManager.beginTransaction()
-            .add(R.id.flContent, permanentContractFragment)
+            .add(R.id.flContent, PermanentContractFragment.newInstance())
             .commitAllowingStateLoss()
     }
 
